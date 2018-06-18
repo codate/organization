@@ -3,6 +3,9 @@ import axios from 'axios'
 const googleApiKey = 'AIzaSyDbG-S5qctvRfRgMKfbW0noYAK8GgybRSg'
 const googleApiUrl = 'https://maps.googleapis.com/maps/api/geocode/json'
 
+//TODO Traduzir para Ingles todos os metodos, nomes e variaveis
+//TODO Mover esta entidade para um Repository
+//TODO Recuperar as configuracoes do process.env.SOMETHING
 export default class Coordenadas {
     static async atualizarCoordenadas(endereco) {
         const {data} = await this.buscarCoordenadas(endereco)

@@ -3,7 +3,7 @@ import personRepository from '../../adapters/repository/PersonRepository.mjs'
 import PersonController from '../controllers/PersonController.mjs'
 import CreatePerson from '../../domain/usecases/CreatePerson.mjs'
 
-function getRouter() {
+export default function getRouter() {
     function createPerson(req, res, next) {
         const personController = new PersonController(req, res, next)
         const createPerson = new CreatePerson(personController, personRepository)
@@ -13,7 +13,4 @@ function getRouter() {
     const router = express.Router()
     router.post('/person', (req, res, next) => createPerson(req, res, next))
     return router
-
 }
-
-export default getRouter

@@ -1,8 +1,8 @@
 import mongoose from 'mongoose'
+import 'mongoose-geojson-schema'
 
 const PersonSchema = new mongoose.Schema({
     id: {type: Number, required: true, unique: true},
-    type: {type: String, required: true},
     name: {type: String, required: true},
     docNumber: {type: String, required: true, unique: true},
     location: mongoose.Schema.Types.Point,
