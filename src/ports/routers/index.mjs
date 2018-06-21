@@ -10,7 +10,7 @@ export default function getRouter() {
         createPerson.execute()
     }
 
-    const router = express.Route()
+    const router = express.Router()
     router.post('/person', (req, res, next) => createPerson(req, res, next))
     return router
 }
