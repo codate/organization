@@ -1,5 +1,4 @@
 import mongoose from 'mongoose'
-import 'mongoose-geojson-schema'
 
 const PersonSchema = new mongoose.Schema({
     id: {type: Number, required: true, unique: true},
@@ -14,7 +13,7 @@ const PersonSchema = new mongoose.Schema({
         number: String,
         supplement: String,
         district: String,
-        zipcode: String,
+        zip: String,
         city: String,
         state: String
     },
