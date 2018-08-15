@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
+import 'mongoose-geojson-schema'
 
 const PersonSchema = new mongoose.Schema({
-    id: {type: Number, required: true, unique: true},
     name: {type: String, required: true},
     docNumber: {type: String, required: true, unique: true},
     location: mongoose.Schema.Types.Point,
@@ -22,4 +22,4 @@ const PersonSchema = new mongoose.Schema({
 
 })
 
-export const Person = mongoose.model('Person', PersonSchema)
+export default mongoose.model('Person', PersonSchema)
