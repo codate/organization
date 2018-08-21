@@ -15,7 +15,7 @@
     "scripts": {
         "start": "node -r esm $NODE_DEBUG_OPTION main.mjs | bunyan -o short",
         "pretest": "mongodb-runner start",
-        "test": "mocha -r esm -r chai/register-expect test/**/*.mjs --exit",
+        "test": "mocha -r esm -r chai/register-expect $NODE_DEBUG_OPTION test/**/*.mjs --exit | bunyan -o short",
         "posttest": "mongodb-runner stop",
         "quality": "eslint ./src/**/*.mjs",
         "postinstall": "node -e \"var s='../src',d='node_modules/src',fs=require('fs');fs.exists(d,function(e){e||fs.symlinkSync(s,d,'dir')});\"",

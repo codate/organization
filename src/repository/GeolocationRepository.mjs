@@ -1,8 +1,18 @@
 import axios from 'axios'
 import environment from 'src/common/environment.mjs'
 
-export default class Coordinates {
-    static buildAddress(address) {
+class GeolocationRepository {
+    async getLocation(address) {
+        const {data} = await this._fetchCoordinates(address)
+        if (this._isValid(data)) {
+            const locationApiResult = data.results[0].geometry.location
+            let location = this._createLocation()
+            location.coordinates = this._createCoordinates(locationApiResult)
+            return location
+        }
+    }
+
+    _buildAddress(address) {
         return address.street + ', ' +
             address.number + ', ' +
             address.district + ', ' +
@@ -12,34 +22,26 @@ export default class Coordinates {
             address.state
     }
 
-    static createCoordinates(location) {
+    _createCoordinates(location) {
         let coordinates = []
         coordinates[0] = location.lat
         coordinates[1] = location.long
         return coordinates
     }
 
-    static createLocation() {
+    _createLocation() {
         return {type: 'Point'}
     }
 
-    static async fetchCoordinates(addr) {
+    async _fetchCoordinates(addr) {
         const key = environment.google.apiKey
-        const address = this.buildAddress(addr)
+        const address = this._buildAddress(addr)
         return axios.get(environment.google.apiUrl, {params: {address, key}})
     }
 
-    static isValid(data) {
+    _isValid(data) {
         return data.results[0] && data.results[0].geometry.location
     }
-
-    static async updateCoordinates(address) {
-        const {data} = await this.fetchCoordinates(address)
-        if (this.isValid(data)) {
-            const locationApiResult = data.results[0].geometry.location
-            let location = this.createLocation()
-            location.coordinates = this.createCoordinates(locationApiResult)
-            return location
-        }
-    }
 }
+
+export default new GeolocationRepository()
