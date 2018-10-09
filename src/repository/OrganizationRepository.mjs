@@ -1,4 +1,5 @@
 import Organization from './Organization.mjs'
+import mongoose from 'mongoose'
 
 class OrganizationRepository {
     async create(organizationData) {
@@ -16,14 +17,44 @@ class OrganizationRepository {
         return removed
     }
 
-    async getById(id){
-        const organization = await Organization.findOne({_id:id})
+    async getById(id) {
+        const organization = await Organization.findOne({_id: id})
         return organization
     }
 
-    async putMembers(organizationId, members) {
-        const updated = await Organization.update({_id:organizationId},{"$addToSet":{"members":{"$each":members}}})
+    async createMembers(organizationId, members) {
+        const updated = await Organization.update({_id: organizationId}, {"$addToSet": {"members": {"$each": members}}})
         return updated
+    }
+
+    async updateMember(organizationId, member){
+        const updated = await Organization.update({_id: organizationId}, {"$addToSet": {"members": member}})
+        return updated
+    }
+
+    async getOrganizationByIdWithMembers(organizationId) {
+        const id = mongoose.Types.ObjectId(organizationId);
+
+        const organization = await Organization.aggregate([
+            {
+                "$match": {_id: id}
+            },
+            {
+                "$lookup": {
+                    "from": "people",
+                    "localField": "members.person",
+                    "foreignField": "_id",
+                    "as": "people"
+                }
+            }
+        ])
+
+        return organization
+    }
+
+    async getOrganizationsByPersonId(personId) {
+        const organizations = await Organization.find({members: {"$elemMatch": {"person": personId}}})
+        return organizations
     }
 }
 

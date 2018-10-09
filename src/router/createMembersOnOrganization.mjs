@@ -1,12 +1,12 @@
 import express from 'express'
-import putMembersOnOrganization from 'src/business/usecase/PutMembersOnOrganization.mjs'
+import createMembersOnOrganization from 'src/business/usecase/CreateMembersOnOrganization.mjs'
 import Responder from 'src/common/Responder.mjs'
 
 function handlerOrganization(req, res, next) {
     const responder = new Responder(req, res, next)
-    putMembersOnOrganization.execute(req.body,req.params.id, responder)
+    createMembersOnOrganization.execute(req.body,req.params.id, responder)
 }
 
 const router = express.Router()
-router.put('/organizations/:id', handlerOrganization)
+router.post('/organizations/:id/members', handlerOrganization)
 export default router

@@ -1,12 +1,12 @@
 import express from 'express'
-import removeOrganization from 'src/business/usecase/RemoveOrganization.mjs'
+import getMembersByOrganizationId from 'src/business/usecase/GetMembersByOrganizationId.mjs'
 import Responder from 'src/common/Responder.mjs'
 
 function handlerOrganization(req, res, next) {
     const responder = new Responder(req, res, next)
-    removeOrganization.execute(req.params.id, responder)
+    getMembersByOrganizationId.execute(req.params.id, responder)
 }
 
 const router = express.Router()
-router.delete('/organizations/:organizationId', handlerOrganization)
+router.get('/organizations/:id/members', handlerOrganization)
 export default router

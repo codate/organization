@@ -8,5 +8,5 @@ function handlerPerson(req, res, next) {
 }
 
 const router = express.Router()
-router.delete('/people/:id', handlerPerson)
+router.delete('/people/:personId', handlerPerson)
 export default router
