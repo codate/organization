@@ -42,7 +42,7 @@ npm run start
         {
             "_id": "5bbe520dc1c10a24c4b71e69",
             "name": "Codate",
-            "docNumber": "123456"
+            "docNumber": "123456",
             "members": [],
             "createdAt": "2018-10-10T19:25:01.752Z",
             "updatedAt": "2018-10-10T19:25:01.752Z",
