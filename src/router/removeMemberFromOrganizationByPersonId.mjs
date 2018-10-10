@@ -4,9 +4,9 @@ import Responder from 'src/common/Responder.mjs'
 
 function handlerOrganization(req, res, next) {
     const responder = new Responder(req, res, next)
-    removeMemberFromOrganization.execute(req.params.organizationId, req.params.memberId, responder)
+    removeMemberFromOrganization.execute(req.params.organizationId, req.params.personId, responder)
 }
 
 const router = express.Router()
-router.delete('/organizations/:organizationId/members/:memberId', handlerOrganization)
+router.delete('/organizations/:organizationId/members/people/:personId', handlerOrganization)
 export default router

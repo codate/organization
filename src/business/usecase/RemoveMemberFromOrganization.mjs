@@ -1,14 +1,14 @@
 import OrganizationRepository from 'src/repository/OrganizationRepository.mjs'
 
-class RemoveOrganization{
-    async execute(id, responder){
+class RemoveMemberFromOrganization{
+    async execute(organizationId,memberId, responder){
         try {
-            const removedOrganization = await OrganizationRepository.remove(id)
-            responder.success(removedOrganization)
+            const organization = await OrganizationRepository.removeMemberById(organizationId,memberId)
+            responder.success(organization)
         } catch (err) {
             responder.error(err)
         }
     }
 }
 
-export default new RemoveOrganization()
+export default new RemoveMemberFromOrganization()

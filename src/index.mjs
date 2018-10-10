@@ -11,6 +11,8 @@ import updateOrganization from 'src/router/updateOrganization.mjs'
 import removeOrganization from 'src/router/removeOrganization.mjs'
 import createMembersOnOrganization from 'src/router/createMembersOnOrganization.mjs'
 import updateMember from 'src/router/updateMember.mjs'
+import removeMemberFromOrganization from 'src/router/removeMemberFromOrganization'
+import removeMemberFromOrganizationByPersonId from 'src/router/removeMemberFromOrganizationByPersonId'
 import getMembersByOrganizationId from 'src/router/getMembersByOrganizationId.mjs'
 import getOrganizationsByPersonId from 'src/router/getOrganizationsByPersonId.mjs'
 
@@ -30,8 +32,11 @@ app.use(getPersonByEmail)
 app.use(createOrganization)
 app.use(updateOrganization)
 app.use(removeOrganization)
+
 app.use(createMembersOnOrganization)
 app.use(updateMember)
+app.use(removeMemberFromOrganization)
+app.use(removeMemberFromOrganizationByPersonId)
 app.use(getMembersByOrganizationId)
 app.use(getOrganizationsByPersonId)
 

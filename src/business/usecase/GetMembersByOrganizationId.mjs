@@ -15,6 +15,8 @@ class GetMembersByOrganizationId {
             const fullMembers = partialMembers.map(function (member) {
                 let person = people.find(function (person) {
                     if(member.person._id.equals(person._id)){
+                        let index = people.indexOf(person);
+                        people.splice(1,index);
                         return person
                     }
                 })

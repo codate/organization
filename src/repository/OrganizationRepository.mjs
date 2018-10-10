@@ -27,9 +27,24 @@ class OrganizationRepository {
         return updated
     }
 
-    async updateMember(organizationId, member){
-        const updated = await Organization.update({_id: organizationId}, {"$addToSet": {"members": member}})
+    async updateMember(organizationId, member) {
+        const updated = await Organization.findOneAndUpdate({
+                _id: organizationId,
+                members: {"$elemMatch": {"_id": member._id}}
+            },
+            {"$set": {"members.$.roles":member.roles,"members.$.person":member.person}})
+
         return updated
+    }
+
+    async removeMemberById(organizationId, memberId) {
+        const removed = await Organization.update({_id: organizationId}, {"$pull": {"members": {"_id": memberId}}})
+        return removed
+    }
+
+    async removeMemberByPersonId(organizationId, personId) {
+        const removed = await Organization.update({_id: organizationId}, {"$pull": {"members": {"person": personId}}})
+        return removed
     }
 
     async getOrganizationByIdWithMembers(organizationId) {

@@ -4,7 +4,7 @@ import Responder from 'src/common/Responder.mjs'
 
 function handlerOrganization(req, res, next) {
     const responder = new Responder(req, res, next)
-    removeOrganization.execute(req.params.id, responder)
+    removeOrganization.execute(req.params.organizationId, responder)
 }
 
 const router = express.Router()
