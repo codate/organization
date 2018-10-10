@@ -109,7 +109,7 @@ npm run start
     POST /organizations/**:id**/members
     
 * **Path Params**     
-    Replace **:id** by organization id that wants register new members.
+    Replace **:id** by organization id.
     
     **Ex.:** /organizations/**5bbe520dc1c10a24c4b71e69**/members
 
@@ -164,11 +164,13 @@ npm run start
     GET /organizations/**:id**/members
     
 * **Path Params**     
-    Replace **:id** by organization id that wants to get all members.
+    Replace **:id** by organization id.
     
     **Ex.:** /organizations/**5bbe520dc1c10a24c4b71e69**/members
 
-* **Data Params**
+* **Success Response:**
+    * **Code:** 200 <br />
+    **Content:**
     ```json
     [
         {
@@ -223,4 +225,50 @@ npm run start
         }
     ]
    ```
+----
+**Get Person Organizations**<br />
+    Get a array with all organizations that a specific person is member.
+
+* **URL**
+    GET /people/**:id**/organization
+    
+* **Path Params**     
+    Replace **:id** by id of a person
+    
+    **Ex.:** /people/**5bbe54dec1c10a24c4b71e6a**/organizations
+
+* **Success Response:**
+    * **Code:** 200 <br />
+    **Content:**
+    ```json
+    [
+   
+        {
+            "_id": "5bbe520dc1c10a24c4b71e69",
+            "name": "Codate",
+            "docNumber": "123456",
+            "members": [
+                {
+                    "roles": [
+                        "Administrator",
+                        "Tester"
+                    ],
+                    "_id": "5bbe5d97c1c10a24c4b71e6b",
+                    "person": "5bbe54dec1c10a24c4b71e6a"
+                },
+                {
+                    "roles": [
+                        "Owner",
+                        "Administrator"
+                    ],
+                    "_id": "5bbe616fc1c10a24c4b71e6d",
+                    "person": "5bbce640a588e463967fe2a1"
+                }
+            ],
+            "createdAt": "2018-10-10T19:25:01.752Z",
+            "updatedAt": "2018-10-10T19:25:01.752Z",
+            "__v": 0
+        }
+    ]
+    ```
 ----
