@@ -124,7 +124,25 @@ npm run start
             "roles": ["Administrator", "Tester"]
         }
     ]
-    ``` 
+    ```
+    
+    It is possible to register more than one member, just separate them by comma.
+    ```json
+    [
+        {
+            "person": {
+                "_id": "5bbe54dec1c10a24c4b71e6a"
+            },
+            "roles": ["Administrator", "Tester"]
+        },
+        {
+            "person": {
+                "_id": "5bbe36f7b5a4031775ce99c6"
+            },
+            "roles": ["Owner", "Administrator"]
+        }
+    ]
+    ```
     
 * **Success Response:**
     * **Code:** 200 <br />
