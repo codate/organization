@@ -137,7 +137,7 @@ npm run start
         },
         {
             "person": {
-                "_id": "5bbe36f7b5a4031775ce99c6"
+                "_id": "5bbce640a588e463967fe2a1"
             },
             "roles": ["Owner", "Administrator"]
         }
@@ -155,4 +155,72 @@ npm run start
             "ok": 1
         }
         ```
+----
+
+**Get Organization Members**<br />
+    Get a array with all members of a organization.
+
+* **URL**
+    GET /organizations/**:id**/members
+    
+* **Path Params**     
+    Replace **:id** by organization id that wants to get all members.
+    
+    **Ex.:** /organizations/**5bbe520dc1c10a24c4b71e69**/members
+
+* **Data Params**
+    ```json
+    [
+        {
+            "_id": "5bbe5d97c1c10a24c4b71e6b",
+            "roles": [
+                "Administrator",
+                "Tester"
+            ],
+            "person": {
+                "_id": "5bbe54dec1c10a24c4b71e6a",
+                "address": {
+                    "street": "xpto",
+                    "number": "40",
+                    "zip": "79400000",
+                    "city": "Coxim",
+                    "district": "Centro",
+                    "state": "Mato Grosso do Sul"
+                },
+                "name": "Fulano Silva",
+                "docNumber": "1010101",
+                "phoneNumber": "99999999",
+                "email": "fulano.silva@domain.com",
+                "createdAt": "2018-10-10T19:37:02.804Z",
+                "updatedAt": "2018-10-10T19:37:02.804Z",
+                "__v": 0
+            }
+        },
+        {
+            "_id": "5bbe616fc1c10a24c4b71e6d",
+            "roles": [
+                "Owner",
+                "Administrator"
+            ],
+            "person": {
+                "_id": "5bbce640a588e463967fe2a1",
+                "address": {
+                    "street": "Ypto",
+                    "number": "30",
+                    "zip": "79500001",
+                    "city": "Coxim",
+                    "district": "Centro",
+                    "state": "Mato Grosso do Sul"
+                },
+                "name": "Bob Beltrano",
+                "docNumber": "1674782",
+                "phoneNumber": "999027276",
+                "email": "bob.beltrano@domain.com",
+                "createdAt": "2018-10-09T17:32:48.529Z",
+                "updatedAt": "2018-10-09T17:32:48.529Z",
+                "__v": 0
+            }
+        }
+    ]
+   ```
 ----
