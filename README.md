@@ -101,29 +101,29 @@ npm run start
     }
     ```
 * **Success Response**
-* **Code:** 200 <br />
-**Content:**
-    
-    ```json
-    {
-        "address": {
-            "street": "xpto",
-            "number": "40",
-            "zip": "79400000",
-            "city": "Coxim",
-            "district": "Centro",
-            "state": "Mato Grosso do Sul"
-        },
-        "_id": "5bbe54dec1c10a24c4b71e6a",
-        "name": "Fulano Silva",
-        "docNumber": "1010101",
-        "phoneNumber": "99999999",
-        "email": "fulano.silva@domain.com",
-        "createdAt": "2018-10-10T19:37:02.804Z",
-        "updatedAt": "2018-10-10T19:37:02.804Z",
-        "__v": 0
-    }
-    ```
+    * **Code:** 200 <br />
+    **Content:**
+
+        ```json
+        {
+            "address": {
+                "street": "xpto",
+                "number": "40",
+                "zip": "79400000",
+                "city": "Coxim",
+                "district": "Centro",
+                "state": "Mato Grosso do Sul"
+            },
+            "_id": "5bbe54dec1c10a24c4b71e6a",
+            "name": "Fulano Silva",
+            "docNumber": "1010101",
+            "phoneNumber": "99999999",
+            "email": "fulano.silva@domain.com",
+            "createdAt": "2018-10-10T19:37:02.804Z",
+            "updatedAt": "2018-10-10T19:37:02.804Z",
+            "__v": 0
+        }
+        ```
 ----
 
 **Create new Organization**<br />
