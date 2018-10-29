@@ -70,6 +70,62 @@ npm run start
         ```
 ----
 
+**Update Person**<br />
+    Use this service if you want update person data
+
+* **URL**
+    PUT /people/**:id**
+    
+* **Path Params**     
+    Replace **:id** by id of a person
+    
+    **Ex.:** /people/**5bbe54dec1c10a24c4b71e6a**
+
+* **Data Params**
+    
+    ```json
+    {
+        "_id":"5bbe54dec1c10a24c4b71e6a",
+        "name":"Fulano Silva",
+        "docNumber":"1010101",
+        "phoneNumber":"99999999",
+        "email":"fulano.silva@domain.com",
+        "address":{
+            "street":"ypto",
+            "number":"50",
+            "zip":"88800000",
+            "city":"Campinas",
+            "district":"Centro",
+            "state":"São Paulo"
+        }
+    }
+    ```
+* **Success Response**
+* **Code:** 200 <br />
+**Content:**
+    
+    ```json
+    {
+        "address": {
+            "street": "xpto",
+            "number": "40",
+            "zip": "79400000",
+            "city": "Coxim",
+            "district": "Centro",
+            "state": "Mato Grosso do Sul"
+        },
+        "_id": "5bbe54dec1c10a24c4b71e6a",
+        "name": "Fulano Silva",
+        "docNumber": "1010101",
+        "phoneNumber": "99999999",
+        "email": "fulano.silva@domain.com",
+        "createdAt": "2018-10-10T19:37:02.804Z",
+        "updatedAt": "2018-10-10T19:37:02.804Z",
+        "__v": 0
+    }
+    ```
+----
+
 **Create new Organization**<br />
     Create new organization to agroup work members.
 
@@ -270,5 +326,29 @@ npm run start
             "__v": 0
         }
     ]
+    ```
+----
+**Update a Member**<br />
+    Use this service if you want update member data. This service is useful if you want to change roles of a member.
+
+* **URL**
+    PUT /organizations/**:id**/members
+    
+* **Path Params**     
+    Replace **:id** by id of a organization
+    
+    **Ex.:** /organizations/**5bbce5a4a588e463967fe29f**/members
+
+* **Data Params**
+    
+    ```json
+   
+        {
+            "person": {
+                "_id": "5bbe54dec1c10a24c4b71e6a"
+            },
+            "roles": ["Administrator", "Tester","Owner"]
+        }
+    
     ```
 ----
