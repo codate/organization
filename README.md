@@ -106,13 +106,13 @@ npm run start
 
         ```json
         {
-            "address": {
-                "street": "xpto",
-                "number": "40",
-                "zip": "79400000",
-                "city": "Coxim",
-                "district": "Centro",
-                "state": "Mato Grosso do Sul"
+            "address":{
+                "street":"ypto",
+                "number":"50",
+                "zip":"88800000",
+                "city":"Campinas",
+                "district":"Centro",
+                "state":"São Paulo"
             },
             "_id": "5bbe54dec1c10a24c4b71e6a",
             "name": "Fulano Silva",
