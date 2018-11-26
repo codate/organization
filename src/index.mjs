@@ -9,7 +9,13 @@ import getPersonByEmail from 'src/router/getPersonByEmail.mjs'
 import createOrganization from 'src/router/createOrganization.mjs'
 import updateOrganization from 'src/router/updateOrganization.mjs'
 import removeOrganization from 'src/router/removeOrganization.mjs'
-import putMembersOnOrganization from 'src/router/putMembersOnOrganization.mjs'
+import createMembersOnOrganization from 'src/router/createMembersOnOrganization.mjs'
+import updateMember from 'src/router/updateMember.mjs'
+import removeMemberFromOrganization from 'src/router/removeMemberFromOrganization'
+import removeMemberFromOrganizationByPersonId from 'src/router/removeMemberFromOrganizationByPersonId'
+import getMembersByOrganizationId from 'src/router/getMembersByOrganizationId.mjs'
+import getOrganizationsByPersonId from 'src/router/getOrganizationsByPersonId.mjs'
+
 import {validationErrorHandler, joiErrorHandler, mongoErrorHandler, defaultErrorHandler} from 'src/common/errorHandler.mjs'
 
 const app = express()
@@ -26,7 +32,13 @@ app.use(getPersonByEmail)
 app.use(createOrganization)
 app.use(updateOrganization)
 app.use(removeOrganization)
-app.use(putMembersOnOrganization)
+
+app.use(createMembersOnOrganization)
+app.use(updateMember)
+app.use(removeMemberFromOrganization)
+app.use(removeMemberFromOrganizationByPersonId)
+app.use(getMembersByOrganizationId)
+app.use(getOrganizationsByPersonId)
 
 app.use(validationErrorHandler)
 app.use(joiErrorHandler)

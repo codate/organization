@@ -1,11 +1,11 @@
 import organizationRepository from 'src/repository/OrganizationRepository.mjs'
 import personRepository from 'src/repository/PersonRepository'
 
-class PutMembersOnOrganization{
+class CreateMembersOnOrganization{
     async execute (members, organizationId, responder){
 
         try{
-            const updatedOrganization = await organizationRepository.putMembers(organizationId,members)
+            const updatedOrganization = await organizationRepository.createMembers(organizationId,members)
             responder.success(updatedOrganization)
         }catch (err) {
             responder.error(err)
@@ -13,4 +13,4 @@ class PutMembersOnOrganization{
     }
 }
 
-export default new PutMembersOnOrganization()
+export default new CreateMembersOnOrganization()
